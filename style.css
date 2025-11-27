@@ -99,7 +99,7 @@
 
 .card p {
   font-size: 16px;
-  color: #e53935; /* Keep price red */
+  color: #e53935;
   font-weight: bold;
   margin-bottom: 12px;
 }
@@ -210,4 +210,5 @@ body::before {
   filter: blur(8px);
   z-index: -1;
 }
+
 
