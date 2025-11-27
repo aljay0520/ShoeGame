@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShoeGame - Product</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <h1>ShoeGame</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="history.html">Transactions</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="product-detail">
+  <img id="product-img">
+
+  <div class="info">
+    <h2 id="product-name"></h2>
+    <p class="price" id="product-price"></p>
+
+    <label>Size:</label>
+    <select id="size">
+      <option>US 7</option>
+      <option>US 8</option>
+      <option>US 9</option>
+      <option>US 10</option>
+    </select>
+
+    <button id="checkoutBtn">Checkout</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+<script>
+  const prod = JSON.parse(localStorage.getItem("selectedProduct"));
+
+  if (prod) {
+    document.getElementById("product-name").innerText = prod.name;
+    document.getElementById("product-price").innerText = prod.price;
+    document.getElementById("product-img").src = prod.img;
+  }
+
+  document.getElementById("checkoutBtn").addEventListener("click", () => {
+      const size = document.getElementById("size").value;
+      addPurchase(prod.name, prod.price, size);
+  });
+</script>
+
+</body>
+</html>
